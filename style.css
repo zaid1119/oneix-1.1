@@ -1,0 +1,213 @@
+:root {
+    --bg-dark: #0a0e14;
+    --card-bg: #151b23;
+    --neon-green: #00ff9d;
+    --danger-red: #ff4d4d;
+    --warning-orange: #ffbd3d;
+    --text-gray: #8b949e;
+    --border-color: #30363d;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: white;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+.dashboard-container {
+    max-width: 1400px;
+    margin: auto;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--card-bg);
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+}
+
+.ai-tag { 
+    color: var(--neon-green); 
+    text-shadow: 0 0 10px rgba(0, 255, 157, 0.5); 
+    font-weight: 800;
+}
+
+.status-bar {
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+.online { color: var(--neon-green); font-weight: bold; }
+
+main {
+    display: grid;
+    grid-template-columns: 350px 1fr; /* Fixed width for control panel, flexible for analysis */
+    gap: 25px;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+.card h3 {
+    margin-top: 0;
+    font-size: 1rem;
+    color: var(--text-gray);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+/* Buttons */
+.btn-primary, .btn-secondary {
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+.btn-primary {
+    background: var(--neon-green);
+    color: black;
+    border: none;
+}
+
+.btn-primary:hover {
+    background: #00cc7e;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--neon-green);
+    border: 1px solid var(--neon-green);
+    margin-top: 15px;
+}
+
+.btn-secondary:hover {
+    background: rgba(0, 255, 157, 0.1);
+}
+
+/* Risk Meter */
+.score-display {
+    font-size: 5rem;
+    text-align: center;
+    font-weight: 900;
+    color: var(--neon-green);
+    margin: 10px 0;
+}
+
+.progress-bar {
+    background: #0d1117;
+    height: 14px;
+    border-radius: 7px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+#risk-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--neon-green);
+    transition: width 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Timeline Styling */
+.timeline-box {
+    display: flex;
+    gap: 15px;
+    padding: 10px 5px;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-color) transparent;
+}
+
+.timeline-step {
+    background: #1c2128;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 12px;
+    min-width: 180px;
+    flex-shrink: 0;
+    position: relative;
+    animation: slideInUp 0.5s ease-out;
+}
+
+.step-num {
+    background: var(--neon-green);
+    color: black;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+/* Threat Feed */
+.threat-item {
+    background: #0d1117;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-left: 5px solid var(--danger-red);
+    border-radius: 6px;
+    animation: slideInLeft 0.4s ease-out;
+}
+
+.threat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.severity-badge {
+    font-size: 0.7rem;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-weight: 800;
+}
+
+.playbook {
+    background: rgba(0, 255, 157, 0.05);
+    border: 1px dashed rgba(0, 255, 157, 0.3);
+    padding: 12px;
+    margin-top: 15px;
+    font-size: 0.85rem;
+    color: var(--neon-green);
+    border-radius: 4px;
+}
+
+/* Animations */
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    main { grid-template-columns: 1fr; }
+}

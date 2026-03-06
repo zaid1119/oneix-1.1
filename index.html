@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malware Analysis AI | SOC Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header>
+            <h1>🛡️ MALWARE ANALYSIS <span class="ai-tag">AI ENGINE</span></h1>
+            <div class="status-bar">SYSTEM STATUS: <span class="online">ACTIVE</span></div>
+        </header>
+
+        <main>
+            <section class="control-panel">
+                <div class="card upload-zone" id="drop-zone">
+                    <h3>📁 Upload Behavioral Logs</h3>
+                    <p>Select a .log or .txt file to begin analysis</p>
+                    <input type="file" id="file-input" hidden>
+                    <button class="btn-primary" onclick="document.getElementById('file-input').click()">Select File</button>
+                </div>
+
+                <div class="card risk-meter">
+                    <h3>Dynamic Risk Score</h3>
+                    <div class="score-display">
+                        <span id="risk-value">0</span><span class="percent">%</span>
+                    </div>
+                    <div class="progress-bar"><div id="risk-fill"></div></div>
+                    
+                    <button id="download-btn" class="btn-secondary">💾 Download Incident Report</button>
+                </div>
+            </section>
+
+            <section class="analysis-panel">
+                <div class="card">
+                    <h3>🕒 Attack Timeline</h3>
+                    <div id="timeline-flow" class="timeline-box">
+                        <p class="placeholder-text">Waiting for events...</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>🚨 Detected Threats & MITRE Mapping</h3>
+                    <div id="threat-feed" class="feed-container">
+                        <p class="placeholder-text">Waiting for log ingestion...</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="engine.js"></script>
+</body>
+</html>

