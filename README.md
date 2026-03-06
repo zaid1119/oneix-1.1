@@ -21,3 +21,13 @@ This project simulates a Security Operations Center (SOC) dashboard. It allows a
   
   Performance: 
   Client-side processing optimized for systems with 8GB RAM.
+
+  🛠️ Installation & Usage
+  Clone the repository:git clone https://github.com/zaid1119/malware-analysis-ai.git
+  Open index.html in any modern browser (Brave, Edge, or Firefox recommended).
+  Upload a .log or .txt file containing system activity.
+
+  Future Roadmap:
+  Integration of TensorFlow.js for anomaly-based detection.
+  Support for JSON-formatted logs (Windows Event Logs).
+  Live network traffic analysis via WebSockets.
